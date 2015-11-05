@@ -1,0 +1,12 @@
+.container-fluid.text-center
+  .row.col-sm-8.col-sm-offset-2
+    .row
+      = simple_form_for @task, wrapper: :horizontal_form, html: {class: 'form-horizontal'} do |f|
+        = f.association :company, include_blank: false
+        = f.input :start_date, as: :string
+        = f.input :end_date, as: :string
+        = f.input :description
+        = f.submit :submit
+    .row
+      %hr
+    =link_to 'top', work_tasks_path
