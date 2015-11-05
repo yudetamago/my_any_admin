@@ -34,7 +34,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'dotenv-rails'
 gem 'settingslogic'
-gem 'slim-rails'
+gem 'haml-rails'
+gem 'simple_form'
+gem 'bootstrap-sass'
+gem 'twitter-bootstrap-rails'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
