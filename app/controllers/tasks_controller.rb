@@ -11,7 +11,7 @@ class TasksController < ApplicationController
     }[]
     from = @date.beginning_of_month
     to = @date.end_of_month
-    @tasks = Task.where(start_date: from..to).order(:start_date)
+    @tasks = Task.includes(:company).where(start_date: from..to).order(:start_date)
     @sum_time = @tasks.reduce(0){|arr,task| arr + (task.end_date - task.start_date) / 3600}
     @one_month_ago = @date - 1.month
     @one_month_from_now = @date + 1.month
