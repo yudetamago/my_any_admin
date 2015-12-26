@@ -1,0 +1,5 @@
+.container-fluid.text-center
+  h1 編集
+  = render partial: 'form', locals: {obj: @task}
+  hr
+  = link_to '一覧に戻る', tasks_path

@@ -1,0 +1,40 @@
+.container-fluid.text-center
+  .text-left
+    h4= link_to 'トップ', root_path
+  .row-fluid
+    h1= @date.strftime('%Y年%m月')
+  hr
+  .row
+    .col-sm-1.pull-left
+      = link_to '新規作成', new_task_path, class: 'btn btn-info'
+    .col-sm-2.col-sm-offset-2
+      = link_to '一ヶ月前', tasks_path(date: @one_month_ago), class: 'btn btn-primary'
+    .col-sm-2
+      = link_to '今月', tasks_path, class: 'btn btn-primary'
+    .col-sm-2
+      = link_to '一ヶ月後', tasks_path(date: @one_month_from_now), class: 'btn btn-primary'
+  table.table.table-striped
+    thead
+      tr
+        th ID
+        th 会社
+        th 開始時間
+        th 終了時間
+        th 時間数
+        th 詳細
+    tbody
+      - for task in @tasks
+        tr
+          td= link_to task.id, edit_task_path(task.id)
+          td= task.company.name
+          td= task.start_date
+          td= task.end_date
+          td= (task.end_date - task.start_date) / 3600
+          td= task.description
+      tr
+        td
+        td
+        td
+        td.text-right 合計時間
+        td= @sum_time
+        td

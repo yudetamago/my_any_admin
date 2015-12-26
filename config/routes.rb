@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  namespace :work do
-    resources :tasks
-  end
+  resources :tasks
+  root to: 'top#show'
 end
